@@ -1,0 +1,6 @@
+use_frameworks!
+target 'mapmdPod_Tests' do
+  pod 'mapmdPod', :path => '../'
+  
+  
+end
