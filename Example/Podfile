@@ -1,4 +1,11 @@
 use_frameworks!
+
+target 'mapTestPods' do
+  pod 'mapmdPod', :path => '../'
+  pod 'Mapbox-iOS-SDK', '~> 6.3.0'
+  pod 'SVGKit', :git => 'https://github.com/SVGKit/SVGKit.git', :branch => '2.1.0'
+end
+
 target 'mapmdPod_Tests' do
   pod 'mapmdPod', :path => '../'
   
