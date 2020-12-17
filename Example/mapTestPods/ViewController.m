@@ -17,7 +17,12 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
+  NSLog(@"%s", __func__);
   // Do any additional setup after loading the view.
+  CGRect rect = [UIScreen mainScreen].bounds;
+  MapView *map = [[MapView alloc] initWithFrame:rect];
+  
+  [self.view addSubview:map];
 }
 
 

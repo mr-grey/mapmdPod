@@ -870,12 +870,25 @@ static MGLCoordinateBounds mapBounds;
     
    // UIImage *pinImage = [SMapHelper imageForGroup:1];   // for 999
    // UIImage *clusterImage = [SMapHelper imageForGroup:0]; // for 999
-     
-    
-    [style setImage:[UIImage imageNamed:@"cluster"] forName:@"cluster"];
-    [style setImage:[UIImage imageNamed:@"pin"] forName:@"pin"];
-    [style setImage:[UIImage imageNamed:@"route_dir_pin"] forName:@"route_dir_pin"];
-    
+  
+  UIImage *clusterImage = [UIImage imageNamed:@"cluster"];
+  if (clusterImage) {
+    [style setImage:clusterImage forName:@"cluster"];
+  } else {
+    [style setImage:[SMapHelper imageForGroup:0] forName:@"cluster"];
+  }
+  
+  UIImage *pinImage = [UIImage imageNamed:@"pin"];
+  if (pinImage) {
+    [style setImage:pinImage forName:@"pin"];
+  } else {
+    [style setImage: [SMapHelper imageForGroup:1] forName:@"pin"];
+  }
+  
+  UIImage *route_dir_pin = [UIImage imageNamed:@"route_dir_pin"];
+  if (route_dir_pin) {
+    [style setImage:route_dir_pin forName:@"route_dir_pin"];
+  }
     @synchronized (self.mapObjects) {
         for (SMapObject *object in self.mapObjects) {
             if ([object isKindOfClass:[SMapRoute class]]) {

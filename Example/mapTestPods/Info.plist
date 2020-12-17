@@ -20,6 +20,12 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>MapmdApiKey</key>
+	<string>8aaff87a-d9b6-4479-a70d-a59cf8730f83</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>location</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>location</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
