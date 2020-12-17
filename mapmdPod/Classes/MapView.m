@@ -1784,7 +1784,10 @@ static MGLCoordinateBounds mapBounds;
         
         NSBundle *bundle = [NSBundle bundleForClass:self.class];
         NSString *file = [bundle pathForResource:@"map_logo_apps" ofType:@"svg"];
-        
+        if (!file) {
+          file = [[NSBundle mainBundle] pathForResource:@"map_logo_apps" ofType:@"svg"];
+        }
+        if (!file) {return;}
         // SMLog(@"$svg : %@",file);
         SVGKImage *image = [SVGKImage imageWithContentsOfFile:file];
         SMLog(@"%s",__func__);

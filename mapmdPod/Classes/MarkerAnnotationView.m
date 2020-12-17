@@ -74,8 +74,12 @@
     if ([marker class] == [MapMarker class]) {
         if (marker.marker_type == MarkerTypeGroup) {
            
-        
-            self.image = [self imageForGroup];
+            UIImage *groupImage = [marker image];
+            self.image = groupImage;
+            
+            if (self.image == nil) {
+              self.image = [self imageForGroup];
+            }
             CGSize size = self.image.size;
             NSLog(@"Init image-%@", NSStringFromCGSize(size));
             
