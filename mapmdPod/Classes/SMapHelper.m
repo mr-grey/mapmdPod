@@ -289,13 +289,13 @@ double XXDegreesToRadians(double degrees) {
   if(count <= 10)
     return sharedGroupimageSmall;
   
-  if(total<=100 && total > 10)
+  if(count <= 100)
     return sharedGroupimageMedium;
   
-  if(total>100)
+  if(count > 100)
     return sharedGroupimageLarge;
   
-  return UIImage();
+  return [UIImage new];
 }
 
 
