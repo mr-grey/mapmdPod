@@ -303,14 +303,18 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-mapmdPod_Tests/Pods-mapmdPod_Tests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack-iOS9.3/CocoaLumberjack.framework",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
 				"${BUILT_PRODUCTS_DIR}/MapboxMobileEvents-iOS9.3/MapboxMobileEvents.framework",
+				"${BUILT_PRODUCTS_DIR}/SVGKit-iOS9.3/SVGKit.framework",
 				"${BUILT_PRODUCTS_DIR}/mapmdPod-iOS9.3/mapmdPod.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxMobileEvents.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVGKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/mapmdPod.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -325,10 +329,10 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-mapTestPods/Pods-mapTestPods-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
+				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack-iOS11.0/CocoaLumberjack.framework",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
 				"${BUILT_PRODUCTS_DIR}/MapboxMobileEvents-iOS11.0/MapboxMobileEvents.framework",
-				"${BUILT_PRODUCTS_DIR}/SVGKit/SVGKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SVGKit-iOS11.0/SVGKit.framework",
 				"${BUILT_PRODUCTS_DIR}/mapmdPod-iOS11.0/mapmdPod.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";

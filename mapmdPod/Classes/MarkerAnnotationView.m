@@ -12,6 +12,7 @@
 
 #define DEG2RAD(degrees) (degrees * 0.01745327)
 
+
 @interface MarkerAnnotationView()
 @property (nonatomic, retain) UIImageView *pinImage;
 @property (nonatomic, retain) UILabel *countLabel; // used for cluster
@@ -29,18 +30,21 @@
     MapMarker *marker = self.annotation;
     if ([marker class] == [MapMarker class]) {
         if (marker.marker_type == MarkerTypeGroup) {
-            
-            if (self.image == nil) {
-                self.image = [self imageForGroup];
-                self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.image.size.width, self.image.size.height);
-                self.backgroundColor = [UIColor colorWithPatternImage:self.image];
-            }
+         
+          // clear old image
+          self.image = nil;
+          
+          if (self.image == nil) {
+            self.image = [SMapHelper imageForGroup_v2:marker.count];
+            self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.image.size.width, self.image.size.height);
+            self.backgroundColor = [UIColor colorWithPatternImage:self.image];
+          }
           
             CGSize size = self.image.size;
             NSLog(@"prepareForReuse image-%@", NSStringFromCGSize(size));
             if (!image) {
                 NSLog(@"no image!");
-                self.image = [SMapHelper imageForGroup:(int)marker.count];
+                self.image = [SMapHelper imageForGroup_v2:marker.count];
                 self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.image.size.width, self.image.size.height);
                 self.backgroundColor = [UIColor colorWithPatternImage:self.image];
                 return;

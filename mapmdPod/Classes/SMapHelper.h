@@ -11,6 +11,10 @@
 
 @import MapKit;
 
+static UIImage *sharedGroupimageSmall;
+static UIImage *sharedGroupimageMedium;
+static UIImage *sharedGroupimageLarge;
+
 typedef enum MapLogoPosition {
     MapLogoPositionTopLeft,
     MapLogoPositionTopRight,
@@ -67,4 +71,11 @@ typedef enum MapLogoPosition {
  Return an image like a cluster with count in middle
  */
 + (UIImage*)imageForGroup:(int)count;
+
+/**
+ Return an image like a cluster , from shared static images
+ no counter text
+ */
++ (UIImage*)imageForGroup_v2:(int)count;
+
 @end

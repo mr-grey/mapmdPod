@@ -276,6 +276,75 @@ double XXDegreesToRadians(double degrees) {
     return result;
 }
 
+// static image whith no counter
+
++ (UIImage*)imageForGroup_v2:(int)count {
+  
+  if (sharedGroupimageLarge == nil || sharedGroupimageSmall == nil || sharedGroupimageMedium == nil) {
+    sharedGroupimageSmall = [SMapHelper backgroundImageForGroup:2];
+    sharedGroupimageMedium = [SMapHelper backgroundImageForGroup:22];
+    sharedGroupimageLarge = [SMapHelper backgroundImageForGroup:555];
+  }
+  
+  if(count <= 10)
+    return sharedGroupimageSmall;
+  
+  if(total<=100 && total > 10)
+    return sharedGroupimageMedium;
+  
+  if(total>100)
+    return sharedGroupimageLarge;
+  
+  return UIImage();
+}
+
+
+// whith no text counter
++ (UIImage*)backgroundImageForGroup:(int)count {
+  NSInteger total = count;
+  NSString *txt = [NSString stringWithFormat:@"%li",(long)total];
+  if (count == 0) txt = @"";
+  
+  UIFont *font = [UIFont fontWithName:@"Arial-BoldMT" size:15];
+  CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
+  CGRect textRect = rect = CGRectMake(0,0,29,29);
+  
+  if(total<=10)
+      rect = CGRectMake(0,0,29,29);
+  if(total<=100 && total > 10)
+      rect = CGRectMake(0,0,45,45);
+  if(total>100)
+      rect = CGRectMake(0,0,53,53);
+  
+  textRect = CGRectMake( 0, (rect.size.height/2.0) - 7.5 , rect.size.width, rect.size.height);
+  
+  
+  
+  UIColor *color = [UIColor colorWithRed:(46.0/255.0) green:(127.0/255.0) blue:(209.0/255.0) alpha:1.0];
+  
+  UIGraphicsBeginImageContextWithOptions(rect.size,NO, 2);
+  
+  CGContextRef context = UIGraphicsGetCurrentContext();
+  
+  CGContextSetFillColorWithColor(context, [[UIColor whiteColor] CGColor]);
+  CGContextAddArc(context, rect.size.width/2, rect.size.height/2, (rect.size.height/2), 0, [SMapHelper DegreeToRadian:360], 0);
+  CGContextFillEllipseInRect (context, rect);
+  
+  
+  CGContextSetFillColorWithColor(context, [color CGColor]);
+  CGContextAddArc(context, rect.size.width/2, rect.size.height/2, ((rect.size.height/2.0) - 3), 0, [SMapHelper DegreeToRadian:360], 0);
+  CGContextFillEllipseInRect (context, CGRectInset(rect, 3, 3));
+  [[UIColor whiteColor] setStroke];
+  
+  //CGContextSetStrokeColor(context, [UIColor whiteColor].CGColor);
+  
+  UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+  UIGraphicsEndImageContext();
+  
+  return image;
+}
+
+
 + (UIImage*)imageForGroup:(int)count {
    
     NSInteger total = count;

@@ -16,8 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 
-@property (nullable, nonatomic, weak) UIImage *image;
-@property (nullable, nonatomic, weak) UIImage *selectedImage;
+@property (nullable, nonatomic, retain) UIImage *image;
+@property (nullable, nonatomic, retain) UIImage *selectedImage;
 
 @end
 
